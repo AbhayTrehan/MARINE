@@ -16,7 +16,14 @@ def load_model(model_name: str, model_path: str):
 
 
         model = LlavaForConditionalGeneration.from_pretrained(model_path).cuda()
-        processor = AutoProcessor.from_pretrained(model_path, use_fast=False)
+        # processor = AutoProcessor.from_pretrained(model_path, use_fast=False)
+        # EDIT:
+        from transformers import AutoImageProcessor, AutoTokenizer, LlavaProcessor
+        image_processor = AutoImageProcessor.from_pretrained(model_path)
+        tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
+        processor = LlavaProcessor(image_processor=image_processor, tokenizer=tokenizer)
+
+
         tokenizer = processor.tokenizer
 
         return model, tokenizer, processor
