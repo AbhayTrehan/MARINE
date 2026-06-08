@@ -57,6 +57,7 @@ def load_image_list(json_path: str) -> List[str]:
         try:
             data = json.load(f)
         except:
+            f.seek(0)
             data = [json.loads(line) for line in f]
     for entry in data:
         if "image" in entry:
