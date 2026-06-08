@@ -16,7 +16,7 @@ def load_model(model_name: str, model_path: str):
 
 
         model = LlavaForConditionalGeneration.from_pretrained(model_path).cuda()
-        processor = AutoProcessor.from_pretrained(model_path)
+        processor = AutoProcessor.from_pretrained(model_path, use_fast=False)
         tokenizer = processor.tokenizer
 
         return model, tokenizer, processor
