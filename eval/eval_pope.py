@@ -78,7 +78,7 @@ def pope(args):
     print(f"== Evaluating POPE for {args.answer_file} ==")
 
     labels = load_labels(label_path)
-    preds, answers = load_predictions(answer_path, args.model)
+    preds, answers = load_predictions(answer_path, getattr(args, 'model', 'llava'))
 
     if len(labels) != len(answers):
         print(f"[ERROR] Answer count ({len(answers)}) does not match label count ({len(labels)}).")
