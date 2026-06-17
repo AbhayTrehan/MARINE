@@ -1,4 +1,4 @@
-# Python bytecode
+# Python
 __pycache__/
 *.py[cod]
 *.so
@@ -9,11 +9,24 @@ __pycache__/
 env/
 venv/
 ENV/
+
+# Build artifacts
 *.egg-info/
 dist/
 build/
 
-
+# Data
 data/coco/
+
+# Models
+pretrained/
+*.pth
+*.pt
+*.ckpt
+
+# Cache
 *.cache/
-*.ckptpretrained/*.pth
+
+# Outputs
+output/
+outputs/
